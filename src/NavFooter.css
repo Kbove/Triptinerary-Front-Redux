@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+
+.backgroundColor {
+  background: #e0e6e0;;
+}
+.add-points {
+  
+  display:flex;
+  justify-content: flex-start;
+  padding: 5px;
+  align-items: center;
+  
+  margin-right: 10px;;
+}
+.pointspace {
+  margin-left: 20px;;
+}
+
+.linkPlacement {
+display: flex;
+justify-content: space-between;
+
+flex-wrap: nowrap;
+}
+.appTitle {
+  text-decoration: none;
+  color: #2e2313;
+  text-shadow: 1px 1px 5px grey;
+  font-size: 300%; 
+  padding-left: 20px;
+}
+
+/* .appTitle :hover {
+  text-decoration: none;
+  color:white;
+} */
+.loginLinks {
+  padding-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 100%;
+}
+
+.navPopOut {
+  background: #e0e6e0;
+  opacity: 0.9;
+}
+
+.popOutLinks {
+  color: #2e2313;
+  text-decoration: none;
+}
+.footer {
+  display: flex;
+justify-content: center;
+align-items: center;
+padding: 2%;
+color: #2e2313;
+background: #e0e6e0;
+ 
+}
+
+.icon {
+ 
+ margin-left: 10px;
+}
+
+@media screen and (max-width: 400px) {
+ 
+    .loginLinks {
+      padding-left: 20px;
+      text-decoration: none;
+      color: black;
+      font-size: 90%;
+    }
+    .footer{
+      align-items: center;
+    }
+    .mobilesizing{
+      font-size: x-small;
+    }
+}
