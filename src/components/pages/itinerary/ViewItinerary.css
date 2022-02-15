@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.youritinerarycard {
+    /* margin: 5%; */
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,39 @@
+/* .featuredCard {
+    max-width: 300px;
+    padding: 1%;
+    margin: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+} */
+.searchresultstitle {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+.searchCards {
+    /* margin-left: 15px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* .featuredCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+} */
+
+.featuredCard {
+    max-width: 300px;
+    padding: 1%;
+    margin: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: #2e2313 0px 5px 15px;
+}
+
+.featuredCard:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
