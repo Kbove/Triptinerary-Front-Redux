@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+// New imports
+import SignupModal from "./modals/SignupModal";
+import LoginModal from "./modals/LoginModal";
 
-import SignupModal from './modals/SignupModal'
-import LoginModal from './modals/LoginModal'
+// this is the css and bootstrap
+import "../NavFooter.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -15,46 +19,57 @@ import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import API from "../components/utils/API"
 import Button from "react-bootstrap/Button";
-import { NavbarBrand } from 'react-bootstrap';
+// import LoginForm from "react-bootstrap/Form";
+// import SignUpForm from "react-bootstrap/Form";
 
-// import "../components/modals/Modals.css";
+
+// Import CSS
+import "../components/modals/Modals.css";
 
 function NavBar() {
-    const [showModal, setShowModal] = useState(false)
-    const [points, setPoints] = useState('')
-    const loadPoints = async () => {
-        try {
-            const token = localStorage.getItem('id_token')
-            const response = await API.getPoints(token)
-            const points = response.data.points
-            setPoints(points)
-        } catch (err) {
-            alert(err)
-        }
+  // NEW: set modal display state
+  const [showModal, setShowModal] = useState(false);
+  const [points, setPoints] = useState('')
+  const loadPoints = async () => {
+    try {
+      const token = localStorage.getItem("id_token")
+      console.log(token)
+      const response = await API.getPoints(token)
+      const points = response.data.points
+      console.log(points)
+      setPoints(points)
+    } catch (err) {
+      console.log(err)
     }
-    useEffect(() => {
-        loadPoints()
-    }, [])
+  };
+  useEffect(() => {
+    loadPoints();
+  }, [])
 
-    const submitPoints = async (event) => {
-        event.preventDefault()
-        try {
-            const token = localStorage.getItem('id_token')
-            const myData = await API.getProfile(token)
-            if (myData) {
-                const _id = myData.data[0]._id
-                const res = await API.addPoints(token, _id)
-                if (res) {
-                    alert('10 points added')
-                }
-            }
-        } catch (err) {
-            alert(err)
+  const submitPoints = async (event) => {
+    event.preventDefault()
+    try {
+      const token = localStorage.getItem("id_token")
+      const myData = await API.getProfile(token)
+      console.log(myData)
+      if (myData) {
+        console.log(myData)
+        const _id = myData.data[0]._id
+        console.log(_id)
+        console.log(token)
+        const res = await API.addPoints(token, _id)
+        if (res) {
+          alert('10 points added')
+          console.log('success')
         }
+      }
+    } catch (err) {
+      console.log(err)
     }
+  }
 
-    return (
-        <>
+  return (
+    <>
       <Container fluid>
         <Row className="backgroundColor">
           <Navbar expand={false}>
@@ -130,7 +145,9 @@ function NavBar() {
           </Navbar>
         </Row>
       </Container>
-            <Modal
+      {/* New */}
+      {/* Set modal data up */}
+      <Modal
         size="lg"
         show={showModal}
         onHide={() => setShowModal(false)}
@@ -146,7 +163,7 @@ function NavBar() {
                   <Nav.Link eventKey="login">Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                  <Nav.Link eventKey="signup">Signup</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
@@ -163,8 +180,8 @@ function NavBar() {
           </Modal.Body>
         </Tab.Container>
       </Modal>
-        </>
-    )
+    </>
+  );
 }
 
 export default NavBar;

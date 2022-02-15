@@ -3,11 +3,21 @@ import axios from 'axios'
 const URL_PREFIX = 'http://localhost:3001'
 
 const API = {
+    getProfile: (token) => {
+        return axios.post(`${URL_PREFIX}/api/users/me`, token, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    },
     login: (userData) => {
-        return axios.post(`${URL_PREFIX}/api/users/me`, userData)
+        return axios.post(`${URL_PREFIX}/api/users/login`, userData);
     },
     signup: (userData) => {
-        return axios.post(`${URL_PREFIX}/api/users/signup`, userData)
+        return axios.post(`${URL_PREFIX}/api/users/signup`, userData);
+    },
+    profilePage: () => {
+        return axios.get(`${URL_PREFIX}/api/ProfilePage`);
     },
     getPoints: (token) => {
         return axios.post(`${URL_PREFIX}/api/users/points`, token, {
