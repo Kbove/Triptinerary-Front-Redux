@@ -16,9 +16,6 @@ const API = {
     signup: (userData) => {
         return axios.post(`${URL_PREFIX}/api/users/signup`, userData);
     },
-    profilePage: () => {
-        return axios.get(`${URL_PREFIX}/api/ProfilePage`);
-    },
     getPoints: (token) => {
         return axios.post(`${URL_PREFIX}/api/users/points`, token, {
             headers: {
