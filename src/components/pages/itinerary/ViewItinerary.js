@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import 'bootstrap/dist/css/boostrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 import './ViewItinerary.css'
 import Card from 'react-bootstrap/Card'
 
