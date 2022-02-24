@@ -125,9 +125,81 @@ function CreateItinerary(props) {
                     rows={3}
                     />
                 </Form.Group>
+                <hr/>
+                <Accordion defaultActiveKey='0'>
+                    <Accordion.Item eventKey='0'>
+                        <Accordion.Header id='days' name='days' value={newItinerary.days}>
+                            Day 1
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            <Form.Group id='location' className='mb-3'>
+                                <Form.Label>Location</Form.Label>
+                                <Form.Control
+                                name='city'
+                                value={newDay.city}
+                                onChange={handleInputChange}
+                                type='text'
+                                as='textarea'
+                                placeholder='Country or City'
+                                rows={1}
+                                />
+                            </Form.Group>
+                            <Form.Group id='activities' className='mb-3'>
+                                <Form.Label>Activities</Form.Label>
+                                <br />
+                                <Form.Label>Where</Form.Label>
+                                <Form.Control
+                                name='where'
+                                value={newActivities.where}
+                                onChange={handleInputChange}
+                                type='text'
+                                as='textarea'
+                                placeholder='For Worth Stockyards'
+                                rows={1}
+                                />
+                                <br />
+                                <Form.Label>What</Form.Label>
+                                <Form.Control
+                                name='what'
+                                value={newActivities.what}
+                                onChange={handleInputChange}
+                                type="text"
+                                as='textarea'
+                                placeholder='Beers, brisket, and bulls'
+                                rows={1}
+                                />
+                            </Form.Group>
+                            <Form.Label id='cost'>Cost</Form.Label>
+                            <Form.Group className='input-group mb-3'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-grou-text'>$</span>
+                                </div>
+                                <Form.Control
+                                name='cost'
+                                value={newActivities.cost}
+                                onChange={handleInputChange}
+                                type='text'
+                                placeholder='100.00'
+                                rows={3}
+                                />
+                            </Form.Group>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+                <br />
+                <Form.Group className='text-center'>
+                    <Button 
+                    className='btn-submit rounded-pill m-2'
+                    size='lg'
+                    onClick={handleFormSubmit}
+                    >
+                        Save Itinerary
+                    </Button>
+                </Form.Group>
             </Form>
         </div>
     )
 }
 
 export default CreateItinerary;
+
