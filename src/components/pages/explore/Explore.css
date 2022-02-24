@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: ; */
+}
+.titleformarea {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+.searchForm {
+    
+    width: 300px;
+    box-shadow: #2e2313 0px 5px 15px;
+    
+}
+
+.searchBtn {
+    background: #2e2313;
+    border: #2e2313;
+    border-radius: 2px;
+}
+
+.searchBtn :hover {
+    background: black;
+}
+
+.allItineraries {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 3%;
+    color: #2e2313;
+    text-shadow: 1px 1px 5px grey;
+}
+
+.featuredCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.featuredCard {
+    max-width: 300px;
+    padding: 1%;
+    margin: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: #2e2313 0px 5px 15px;
+}
+
+.featuredCard:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+/* @media screen and (max-width: 950px) {
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        background-image: url(./images/background-compressed2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .aboutCards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 1%;
+    }
+    .aboutCard {
+        margin: 2%;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .searchForm {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+} */
