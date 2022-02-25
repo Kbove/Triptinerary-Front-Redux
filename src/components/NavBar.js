@@ -42,9 +42,6 @@ function NavBar() {
       console.log(err)
     }
   };
-  useEffect(() => {
-    loadPoints();
-  }, [])
 
   const submitPoints = async (event) => {
     event.preventDefault()
@@ -60,6 +57,7 @@ function NavBar() {
         const res = await API.addPoints(token, _id)
         if (res) {
           alert('10 points added')
+          loadPoints()
           console.log('success')
         }
       }
@@ -67,6 +65,12 @@ function NavBar() {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    loadPoints();
+  }, [])
+
+  
 
   return (
     <>
