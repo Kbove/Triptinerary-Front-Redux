@@ -10,7 +10,7 @@ import SignupModal from "./components/modals/SignupModal";
 import NavBar from "./components/NavBar";
 import ItineraryCard from "./components/pages/itinerary/ItineraryCard";
 import ViewItinerary from "./components/pages/itinerary/ViewItinerary";
-// import Explore from "./components/pages/explore/Explore";
+import Explore from "./components/pages/explore/Explore";
 // Import API
 import API from "./components/utils/API";
 import auth from "./components/utils/auth";
@@ -74,9 +74,9 @@ function App() {
         <Route path="/signup">
           <SignupModal />
         </Route>
-        {/* <Route path="/Explore">
+        <Route path="/Explore">
           <Explore searchInfo={searchInfo} setSearchInfo={setSearchInfo}/>
-        </Route> */}
+        </Route>
         <Route path="/ItineraryCard">
           <ItineraryCard searchInfo={searchInfo} />
         </Route>

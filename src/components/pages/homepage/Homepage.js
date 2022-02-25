@@ -68,7 +68,7 @@ function Homepage(props) {
                 placeholder='Search for a city...'
                 value={city}
                 name='city'
-                onChange={handleFormSubmit}
+                onChange={handleInputChange}
                 />
                 <Button
                 type='submit'
