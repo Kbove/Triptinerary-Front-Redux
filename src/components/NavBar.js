@@ -57,6 +57,7 @@ function NavBar() {
         const res = await API.addPoints(token, _id)
         if (res) {
           alert('10 points added')
+          loadPoints()
           console.log('success')
         }
       }
