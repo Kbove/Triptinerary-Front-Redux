@@ -43,6 +43,7 @@ function ProfilePage() {
             const saved = response.data.saved_itinerary
             setPurchased(purchased)
             setSaved(saved)
+            console.log('saved itins', saved)
         } catch (err) {
             console.log(err)
         }
@@ -75,7 +76,7 @@ function ProfilePage() {
                 <h2>Your Itineraries</h2>
             </div>
             <div className='profileCards'>
-                {saved.map((card) => (
+                {saved.length > 1 ? (saved.map((card) => (
                     <Card className='profileCard'>
                         <Card.Img className='cardImg' src={card.image} />
                         <Card.Body>
@@ -86,7 +87,11 @@ function ProfilePage() {
                             <small>Rating: {displayRating(card.ratings)}</small>
                         </Card.Footer>
                     </Card>
-                ))}
+                ))) : (
+                    <div>
+                        <h3>You have not created any itineraries</h3>
+                    </div>
+                )}
             </div>
         </>
     )

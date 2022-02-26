@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import NavBar from '../../NavBar'
 
 import API from "../../utils/API";
 import token from "../../utils/auth";
@@ -93,6 +94,7 @@ function Explore(props) {
       if (res){
         alert('Itinerary purchase')
         console.log('worked')
+        window.location.reload()
       }
     } catch (err) {
       console.log(err)
