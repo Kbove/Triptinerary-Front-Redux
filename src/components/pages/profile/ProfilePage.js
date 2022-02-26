@@ -39,7 +39,7 @@ function ProfilePage() {
         try {
             const token = localStorage.getItem('id_token')
             const response = await API.getPurchasedItineraries(token)
-            const purchased = response.data.purchased_itinerary
+            const purchased = response.data.purchased_itinerary.slice(1)
             const saved = response.data.saved_itinerary
             setPurchased(purchased)
             setSaved(saved)
