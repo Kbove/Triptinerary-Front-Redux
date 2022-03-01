@@ -33,6 +33,7 @@ function ItineraryCard(props) {
             console.log(err)
         }
     }
+    console.log('props log on Itin Card', props.searchInfo)
 
     return (
         <>

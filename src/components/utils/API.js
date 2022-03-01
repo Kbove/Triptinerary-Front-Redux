@@ -78,8 +78,8 @@ const API = {
             }
         })
     },
-    rateItinerary: (token, ratings) => {
-        return axios.put(`${URL_PREFIX}/api/itinerary/rateItinerary`, ratings, {
+    rateItinerary: (token, ratingObj) => {
+        return axios.put(`${URL_PREFIX}/api/users/rateItinerary`, ratingObj, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

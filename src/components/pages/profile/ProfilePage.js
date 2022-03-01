@@ -10,8 +10,12 @@ import { NotBeforeError } from 'jsonwebtoken'
 
 function ProfilePage() {
     const [rating, setRating] = useState(0)
+    // const [currentUser, getUser] = useState(auth.getProfile())
+
     const handleRating = (rating, _id) => {
-        API.rateItinerary(localStorage.getItem('id_token'), { rating, _id }).then((response) => {
+        const user_id = auth.getProfile().data._id
+        console.log('itin id log on Profile Page', _id, 'this should catpure the rating', rating, 'this should capture the user id', user_id)
+        API.rateItinerary(localStorage.getItem('id_token'), { rating, _id, user_id }).then((response) => {
             console.log(response)
         }).catch((err) => {
             console.log(err)
@@ -19,6 +23,7 @@ function ProfilePage() {
 
         setRating(rating)
     }
+
     const displayRating = (rating) => {
         if (!rating) {
             return
@@ -60,7 +65,7 @@ function ProfilePage() {
             </div>
             <div className='profileCards'>
                 {purchased.map((card) => (
-                    <Card className='profileCard'>
+                    <Card className='profileCard' id={card._id}>
                         <Card.Img className='cardImg' src={card.image} />
                         <Card.Body>
                             <Card.Title>{card.title}</Card.Title>

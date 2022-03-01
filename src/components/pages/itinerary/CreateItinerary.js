@@ -5,6 +5,8 @@ import auth from '../../utils/auth'
 
 import { useHistory } from 'react-router-dom'
 
+//Add logic to allow users to add multiple days to their created itineraries
+
 function CreateItinerary(props) {
     let history = useHistory()
 
