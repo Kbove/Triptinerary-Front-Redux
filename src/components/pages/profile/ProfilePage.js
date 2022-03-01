@@ -7,21 +7,22 @@ import Card from 'react-bootstrap/Card'
 import API from '../../utils/API'
 import auth from '../../utils/auth'
 import { NotBeforeError } from 'jsonwebtoken'
+import e from 'cors'
 
 function ProfilePage() {
     const [rating, setRating] = useState(0)
-    // const [currentUser, getUser] = useState(auth.getProfile())
+
+
 
     const handleRating = (rating, _id) => {
-        const user_id = auth.getProfile().data._id
-        console.log('itin id log on Profile Page', _id, 'this should catpure the rating', rating, 'this should capture the user id', user_id)
-        API.rateItinerary(localStorage.getItem('id_token'), { rating, _id, user_id }).then((response) => {
-            console.log(response)
-        }).catch((err) => {
-            console.log(err)
-        })
-
-        setRating(rating)
+            const user_id = auth.getProfile().data._id
+            console.log('itin id', _id, 'user id', user_id, 'rating', rating)
+            API.rateItinerary(localStorage.getItem('id_token'), { rating, _id, user_id }).then((response) => {
+                console.log(response)
+            }).catch((err) => {
+                alert('You have already rated this')
+                console.log(err)
+            })
     }
 
     const displayRating = (rating) => {
@@ -48,7 +49,6 @@ function ProfilePage() {
             const saved = response.data.saved_itinerary
             setPurchased(purchased)
             setSaved(saved)
-            console.log('saved itins', saved)
         } catch (err) {
             console.log(err)
         }

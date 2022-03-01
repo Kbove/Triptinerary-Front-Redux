@@ -33,10 +33,8 @@ function NavBar() {
   const loadPoints = async () => {
     try {
       const token = localStorage.getItem("id_token")
-      console.log(token)
       const response = await API.getPoints(token)
       const points = response.data.points
-      console.log(points)
       setPoints(points)
     } catch (err) {
       console.log(err)
@@ -48,17 +46,12 @@ function NavBar() {
     try {
       const token = localStorage.getItem("id_token")
       const myData = await API.getProfile(token)
-      console.log(myData)
       if (myData) {
-        console.log(myData)
         const _id = myData.data[0]._id
-        console.log(_id)
-        console.log(token)
         const res = await API.addPoints(token, _id)
         if (res) {
           alert('10 points added')
           loadPoints()
-          console.log('success')
         }
       }
     } catch (err) {

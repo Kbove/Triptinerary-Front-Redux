@@ -16,8 +16,6 @@ import { useHistory } from "react-router-dom";
 // import ItineraryCard from "../itinerary/ItineraryCard";
 // import { searchCity } from "../../utils/API";
 
-console.log(token);
-
 function Explore(props) {
     let history = useHistory();
     //sets up a state variable for "city"
@@ -27,13 +25,7 @@ function Explore(props) {
     const loadFeatured = async () => {
         try {
             const response = await API.getAllItineraries()
-            console.log(response)
-            //   response.data.map((itin) => {
-            //     console.log(itin.description)
-            //     setItins(result => [...result, itin])
-            //   })
             setItins([...response.data])
-            // console.log(itins)
         } catch (err) {
             console.log(err)
         }
@@ -43,13 +35,11 @@ function Explore(props) {
 
             loadFeatured()
         }
-        console.log(itins);
     }, [itins])
 
     const handleInputChange = (event) => {
         //get name and value of input triggering the change
         setCity(event.target.value);
-        // console.log(city)
     };
     // Once the form has been submitted, this function will post to the backend
     const handleFormSubmit = async (event) => {
@@ -58,7 +48,6 @@ function Explore(props) {
         const cityQuery = {
             city: city.toString(),
         };
-        console.log(cityQuery);
         const res = await API.searchCity(token, cityQuery);
         props.setSearchInfo([res.data]);
         console.log(props.searchInfo);
@@ -66,8 +55,6 @@ function Explore(props) {
     };
 
     const displayRating = (ratings) => {
-        console.log(ratings);
-
         if (!ratings) {
 
             return;
@@ -89,12 +76,9 @@ function Explore(props) {
         try {
             const token = localStorage.getItem("id_token")
             const _id = { _id: event.target.getAttribute('dataKey') }
-            console.log(event.target.getAttribute('dataKey'))
             const res = await API.purchaseItinerary(token, _id)
-            console.log('res', res)
             if (res) {
                 alert('Itinerary purchase')
-                console.log('worked')
                 window.location.reload()
             }
         } catch (err) {

@@ -35,7 +35,6 @@ const SignupModal = () => {
     try {
       const response = await API.signup(userFormData);
       const { token } = response.data;
-      console.log(token);
       Auth.login(token);
     } catch (err) {
       console.error(err);

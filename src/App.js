@@ -20,41 +20,9 @@ import "./NavFooter.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  // const [userState, setUserState] = useState({
-  //   email: "",
-  //   id: 0,
-  // });
-  // const [token, setToken] = useState("");
   const [searchInfo, setSearchInfo]= useState([]);
   const [viewItin, setViewItin]= useState([[]]);
-  // useEffect(() => {
-  //   // console.log(searchInfo);
-  //   // const myToken = auth.getToken();
-  //   console.log("use effected");
-  //   // console.log(myToken);
-  //   // if (myToken) {
-  //   //   API.getProfile(myToken)
-  //   //     .then((res) => {
-  //   //       console.log("worked");
-  //   //       setToken(myToken);
-  //   //       setUserState({
-  //   //         email: res.data.email,
-  //   //         id: res.data.id,
-  //   //       });
-  //   //     })
-  //   //     .catch((err) => {
-  //   //       console.log("failed");
-  //   //       console.log(err);
-  //   //       localStorage.removeItem("token");
-  //   //     });
-  //   // }
-  // }, []);
 
-  // const logMeOut = () => {
-  //   setUserState({ email: "", id: 0 });
-  //   setToken("");
-  //   auth.logout();
-  // };
   return (
     <Router>
       <NavBar />
