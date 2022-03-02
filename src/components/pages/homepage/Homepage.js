@@ -87,6 +87,7 @@ function Homepage(props) {
                     <Card className='featuredCard'>
                         <Card.Body>
                             <Card.Title>{card.title}</Card.Title>
+                            <Card.Img className='cardImg' src={card.image}/>
                             <Card.Text>{card.description}</Card.Text>
                         </Card.Body>
                         <Card.Footer className='card-footer'>

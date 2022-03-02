@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card'
 import API from '../../utils/API'
 import auth from '../../utils/auth'
 import { NotBeforeError } from 'jsonwebtoken'
-import e from 'cors'
 
 function ProfilePage() {
     const [rating, setRating] = useState(0)
@@ -24,6 +23,15 @@ function ProfilePage() {
                 console.log(err)
             })
     }
+
+    // const loadRatings = () => {
+    //     // const user_id = auth.getProfile().data._id
+    //     API.getAllItineraries(localStorage.getItem('id_token')/*,user_id*/).then((data) => {
+    //         console.log(data)
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
+    // }
 
     const displayRating = (rating) => {
         if (!rating) {
@@ -47,6 +55,7 @@ function ProfilePage() {
             const response = await API.getPurchasedItineraries(token)
             const purchased = response.data.purchased_itinerary.slice(1)
             const saved = response.data.saved_itinerary
+            console.log('purchased', purchased)
             setPurchased(purchased)
             setSaved(saved)
         } catch (err) {
@@ -55,7 +64,8 @@ function ProfilePage() {
     }
 
     useEffect(() => [
-        loadPurchased()
+        loadPurchased(),
+        // loadRatings()
     ], [])
 
     return (
@@ -72,7 +82,7 @@ function ProfilePage() {
                             <Card.Text>{card.description}</Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Rating onClick={(rating) => handleRating(rating, card._id)} ratingValue={rating} />
+                            <Rating onClick={(rating) => handleRating(rating, card._id)} ratingValue={card.rating} />
                         </Card.Footer>
                     </Card>
                 ))}
