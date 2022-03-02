@@ -33,13 +33,13 @@ function ItineraryCard(props) {
             console.log(err)
         }
     }
+    console.log(props.searchInfo[0].searchArr)
 
     return (
         <>
             <h2 className="searchresultstitle">Search Results</h2>
             <div className='searchCards'>
-
-                {props.searchInfo[0].map((itin) => (
+                {props.searchInfo[0].searchArr.map((itin) => (
                     <Card className='featuredCard' key={itin._id}>
                         <Card.Img className='cardImg' src={itin.image}/>
                         <Card.Body>
