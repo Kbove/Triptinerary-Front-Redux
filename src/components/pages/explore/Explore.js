@@ -52,6 +52,7 @@ function Explore(props) {
         props.setSearchInfo([res.data]);
         console.log(props.searchInfo);
         history.push("/ItineraryCard");
+
     };
 
     const displayRating = (ratings) => {

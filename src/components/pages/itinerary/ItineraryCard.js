@@ -33,7 +33,14 @@ function ItineraryCard(props) {
             console.log(err)
         }
     }
-    console.log(props.searchInfo[0].searchArr)
+
+    const handleRefresh = () => {
+        if (!props) {
+            window.location.href = '/Explore'
+        } 
+    }
+
+    handleRefresh()
 
     return (
         <>
@@ -41,7 +48,7 @@ function ItineraryCard(props) {
             <div className='searchCards'>
                 {props.searchInfo[0].searchArr.map((itin) => (
                     <Card className='featuredCard' key={itin._id}>
-                        <Card.Img className='cardImg' src={itin.image}/>
+                        <Card.Img className='cardImg' src={itin.image} />
                         <Card.Body>
                             <Card.Title>{itin.title}</Card.Title>
                             <Card.Text>{itin.description}</Card.Text>
@@ -54,7 +61,7 @@ function ItineraryCard(props) {
                                     <li className='list-group-item'>{day.city}</li>
                                     {day.activities.map((activity) => {
                                         <li className='list-group-item'>
-                                        {(activity.where, activity.what, activity.cost)}
+                                            {(activity.where, activity.what, activity.cost)}
                                         </li>
                                     })}
                                 </ul>
