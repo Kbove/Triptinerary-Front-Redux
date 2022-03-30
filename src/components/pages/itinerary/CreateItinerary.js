@@ -131,7 +131,8 @@ function CreateItinerary(props) {
                 <Accordion defaultActiveKey='0'>
                     <Accordion.Item eventKey='0'>
                         <Accordion.Header id='days' name='days' value={newItinerary.days}>
-                            Day 1
+                            Day 1 
+                            <button>Add Day</button>
                         </Accordion.Header>
                         <Accordion.Body>
                             <Form.Group id='location' className='mb-3'>
